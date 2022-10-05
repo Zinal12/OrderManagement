@@ -12,7 +12,7 @@ namespace OrderManagement.Models
         public string OrderNumber { get; set; }
 
         public string OrderName { get; set; }
-         
+
         public int OrderQty { get; set; }
 
         public decimal OrderPrice { get; set; }
@@ -22,5 +22,6 @@ namespace OrderManagement.Models
         public DateTime OrderDate { get; set; }
 
         public OrderStatus orderStatus { get; set; }
+    
     }
 }
