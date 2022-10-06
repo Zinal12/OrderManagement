@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManagement", "OrderMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManagement_DataLayer", "OrderManagement_DataLayer\OrderManagement_DataLayer.csproj", "{3099AEB8-D36F-4434-80A1-04F1A63D3995}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "OrderManagement_SQL", "..\OrderManagement_SQL\OrderManagement_SQL.sqlproj", "{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{3099AEB8-D36F-4434-80A1-04F1A63D3995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3099AEB8-D36F-4434-80A1-04F1A63D3995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3099AEB8-D36F-4434-80A1-04F1A63D3995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01772DC7-DCD2-4635-9A5F-B4F2BCDD9802}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
