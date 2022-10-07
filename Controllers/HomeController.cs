@@ -29,7 +29,14 @@ namespace OrderManagement.Controllers
 
             return View();
         }
-       
+
+        public ActionResult OrderPage()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
 
     }
 }
