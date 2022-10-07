@@ -23,6 +23,6 @@ namespace OrderManagement_DataLayer
         [Required]
         public DateTime OrderDate { get; set; }
 
-        public String orderStatus { get; set; }
+        public String OrderStatus { get; set; }
     }
 }
