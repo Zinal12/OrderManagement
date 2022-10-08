@@ -82,6 +82,5 @@ namespace OrderManagement.Controllers
             ViewBag.list = status;
             return View();
         }
-    }
-    
+    }  
 }
