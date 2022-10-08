@@ -46,7 +46,5 @@ namespace OrderManagement.Controllers
 
             return View();
         }
-
-
-    }
+  }
 }
