@@ -1,0 +1,124 @@
+CREATE ORDER
+*------------------------*
+
+CREATE proc [dbo].[CreateOrder]
+(
+@OrderId uniqueidentifier,
+@OrderNumber varchar(50),
+@OrderName varchar(50),
+@OrderOty int,
+@OrderPrice decimal(18, 0),
+@OrderDate datetime,
+@OrderStatus Varchar(50)
+)
+as 
+begin
+     begin try
+	    begin tran
+              insert into dbo.Orders(OrderNumber,OrderName,OrderQty,OrderPrice,OrderDate,OrderStatus) 
+	          values(@OrderNumber,@OrderName,@OrderOty, @OrderPrice, @OrderDate,@OrderStatus) 
+		commit tran
+	 end try
+
+	 begin catch
+	   rollback tran
+	   select ERROR_MESSAGE()
+	 end catch
+end
+GO
+
+-----------------------------------------------------------------------------------------
+
+GET ORDER
+*-------------------*
+
+CREATE PROCEDURE GetOrder
+
+    @OrderId uniqueidentifier,
+AS
+BEGIN
+ 
+ SELECT
+	 OrderId
+	,OrderNumber 
+	,OrderName 
+	,OrderOty
+	,OrderPrice 
+	,OrderDate 
+	,OrderStatus 
+
+FROM  [dbo].[Orders] 
+   
+WHERE OrderId = @OrderId
+
+END
+
+---------------------------------------------------------------------------------------------------
+
+UPDATE ORDER
+*-------------------*
+
+create proc [dbo].[UpdateOrder]
+(
+@OrderId uniqueidentifier,
+@OrderNumber varchar(50),
+@OrderName varchar(50),
+@OrderOty int,
+@OrderPrice decimal(18, 0),
+@OrderDate datetime,
+@OrderStatus Varchar(50)
+)
+
+as 
+begin
+declare @Rowcount int=0
+
+set @Rowcount=(select count(1) from dbo.Orders where OrderNumber=@OrderNumber and Id<>@Id)
+
+    begin try
+	     begin tran
+
+		 if(@Rowcount=0)
+		    begin
+			   update dbo.Orders
+			      set OrderNumber=@OrderNumber,
+                            OrderName=@OrderName,
+				    OrderOty=@OrderOty,
+				    OrderPrice=@OrderPrice,
+				    OrderDate=@OrderDate,
+                            OrderStatus=@OrderStatus
+				where OrderId=@OrderId
+             end
+	       commit tran
+	 end try
+
+	 begin catch
+	     rollback tran
+		 select ERROR_MESSAGE()
+	 end catch
+end
+		     
+GO
+---------------------------------------------------------------------------------------------------
+
+DELETE ORDER
+*-------------------*
+
+create proc [dbo].[DeleteOrder]
+(
+   @OrderId uniqueidentifier
+)
+as
+begin
+  begin try
+       begin tran
+	       DELETE FROM dbo.Orders WHERE OrderId=@OrderId
+	   commit tran
+  end try
+
+  begin catch
+       rollback tran
+  end catch
+
+end
+GO
