@@ -61,7 +61,6 @@ namespace OrderManagement.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult UpdatePage(Order ord)
         {
