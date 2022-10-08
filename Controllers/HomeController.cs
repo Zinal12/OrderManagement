@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OrderManagement.Mapper;
 using OrderManagement.Models;
-using OrderManagement.Controllers;
-
+using System.Threading;
 
 namespace OrderManagement.Controllers
 {
@@ -13,7 +13,17 @@ namespace OrderManagement.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                OrderManagement_DataLayer.Order ord = new OrderManagement_DataLayer.Order();
+
+                return View(ord.GetOrders().Select(a => a.Map()));
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View(new List<Order>());
+            }
         }
 
         public ActionResult About()
