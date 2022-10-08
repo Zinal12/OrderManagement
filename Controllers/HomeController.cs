@@ -15,7 +15,6 @@ namespace OrderManagement.Controllers
         {
             try
             {
-
                 OrderManagement_DataLayer.Order ord = new OrderManagement_DataLayer.Order();
 
                 return View(ord.GetOrders().Select(a => a.Map()));
