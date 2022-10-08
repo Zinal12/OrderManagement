@@ -36,7 +36,42 @@ namespace OrderManagement.Controllers
 
             return View();
         }
+        public ActionResult UpdatePage()
+        {
+            
+            var status = new List<OrderStatus>()
+            {
+                new OrderStatus(){Id=1, StatusName="Approved"},
+                new OrderStatus(){Id=2, StatusName="Pending"},
+                new OrderStatus(){Id=3, StatusName="Active"},
+                new OrderStatus(){Id=4, StatusName="InTransit"},
+                new OrderStatus(){Id=5, StatusName="Delivered"},
+            };
+            ViewBag.list = status;
+            return View();
+        }
 
 
+        [HttpPost]
+        public ActionResult UpdatePage(Order ord)
+        {
+
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("UpdatePage");
+            }
+
+            var status = new List<OrderStatus>()
+            {
+                new OrderStatus(){Id=1, StatusName="Approved"},
+                new OrderStatus(){Id=2, StatusName="Pending"},
+                new OrderStatus(){Id=3, StatusName="Active"},
+                new OrderStatus(){Id=4, StatusName="InTransit"},
+                new OrderStatus(){Id=5, StatusName="Delivered"},
+            };
+            ViewBag.list = status;
+            return View();
+        }
     }
+    
 }

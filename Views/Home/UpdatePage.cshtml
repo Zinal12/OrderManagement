@@ -1,9 +1,10 @@
 ﻿@model OrderManagement_DataLayer.Order
+
 @{
-    ViewBag.Title = "OrderPage";
+    ViewBag.Title = "UpdatePage";
 }
 
-<h2>Create Order</h2>
+<h2>Update Order</h2>
 
 @if (TempData["ErrorMessage"] != null)
 {
@@ -23,6 +24,8 @@
 
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.OrderId)
+
     <div class="form-group">
         @Html.LabelFor(model => model.OrderNumber, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -70,7 +73,8 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-primary" />
+            <input type="submit" value="Update" class="btn btn-primary" />&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Cancel" class="btn btn-primary" />
         </div>
     </div>
 </div>

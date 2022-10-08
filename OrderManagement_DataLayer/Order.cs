@@ -22,7 +22,15 @@ namespace OrderManagement_DataLayer
         [Display(Name = "Order Date")]
         [Required]
         public DateTime OrderDate { get; set; }
+        
+        [Required]
+        public string OrderStatus { get; set; }
 
-        public String OrderStatus { get; set; }
+    }
+    class OrderStatus
+    {
+        public int Id { get; set; }
+
+        public string StatusName { get; set; }
     }
 }
