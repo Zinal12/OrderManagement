@@ -1,4 +1,3 @@
-﻿using OrderManagement_DataLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,6 @@ using System.Web.Mvc;
 using OrderManagement.Mapper;
 using OrderManagement.Models;
 using System.Threading;
-using Order = OrderManagement.Models.Order;
 
 namespace OrderManagement.Controllers
 {
@@ -42,5 +40,14 @@ namespace OrderManagement.Controllers
 
             return View();
         }
+
+        public ActionResult OrderPage()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+
     }
 }
